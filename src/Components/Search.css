@@ -7,6 +7,7 @@
 
 input {
     border: none;
+    outline: none;
     font-size: 1.2em;
     font-weight: 800;
     background-color: rgba(209, 207, 207, 0.5);
