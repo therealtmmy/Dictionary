@@ -1,0 +1,22 @@
+.Search {
+    margin-top: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    border: none;
+    font-size: 1.2em;
+    font-weight: 800;
+    background-color: rgba(209, 207, 207, 0.5);
+    width: 40em;
+    height: 2.4em;
+    padding-left: 1.4em;
+    border-radius: 2em;
+}
+
+.SearchIcon {
+    margin-left: -2.3em;
+}
+
