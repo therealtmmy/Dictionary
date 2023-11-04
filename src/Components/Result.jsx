@@ -34,7 +34,7 @@ const Result = ({value}) => {
             </span>
           </p>
           
-          <p className='partSpeech'>
+          {/* <p className='partSpeech'>
             {value.meanings[1].partOfSpeech}
             </p>
           <div className='line'></div>
@@ -51,7 +51,7 @@ const Result = ({value}) => {
           href={value.sourceUrls}> 
            {value.sourceUrls} </a> 
           <FaExternalLinkAlt/>
-          </p>
+          </p> */}
     </div>
   )
 }

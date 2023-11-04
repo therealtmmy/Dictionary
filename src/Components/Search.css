@@ -20,5 +20,12 @@ input {
 
 .SearchIcon {
     margin-left: -2.3em;
+    cursor: pointer;
+}
+
+.errorMessage {
+    text-align: center;
+    width: 17em;
+    margin-top: 2em;
 }
 
