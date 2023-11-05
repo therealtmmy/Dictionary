@@ -25,7 +25,7 @@ const Result = ({value}) => {
           {value.meanings[1] && value.meanings[1].partOfSpeech ? (<p className='partSpeech'> {value.meanings[1].partOfSpeech} </p>) : null}
 
   <div className='line'></div>
-          <p>Meaning</p>
+         {value.meanings[1] ? (<p>Meaning</p>) : null}
             <ul>
                 {value.meanings[1] && value.meanings[1].definitions[0].definition ? (<li>{value.meanings[1].definitions[0].definition}</li>) : (null)}
                 {value.meanings[1] && value.meanings[1].definitions[1] && value.meanings[1].definitions[1].definition ? (<li>{value.meanings[1].definitions[1].definition}</li>) : null}
