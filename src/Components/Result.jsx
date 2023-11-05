@@ -3,6 +3,7 @@ import "./Result.css"
 import {FaExternalLinkAlt} from "react-icons/fa";
 
 const Result = ({value}) => {
+  
   return (
     <div className='Result'>
         <h2>{value.word}</h2>
@@ -18,40 +19,43 @@ const Result = ({value}) => {
         <p>Meaning</p>
         <ul>
           <li>{value.meanings[0].definitions[0].definition}</li>
-          <li>{value.meanings[0].definitions[1].definition}</li>
-          <li>{value.meanings[0].definitions[2].definition}</li>
+
+          {value.meanings[0] && value.meanings[0].definitions[1] && value.meanings[0].definitions[1].definition ? (<li>{value.meanings[0].definitions[1].definition}</li>) : null}
+
+          {value.meanings[0] && value.meanings[0].definitions[2] && value.meanings[0].definitions[2].definition ? (<li>{value.meanings[0].definitions[2].definition}</li>) : null}
+
         </ul>
       
-          <p>Synonyms:
-             <span className='Synonyms'>  
-              {value.meanings[0].definitions[0].synonyms}
+          {value.meanings[0].definitions[0].synonyms.join(", ") && (<p>Synonyms:
+             <span className='Synonyms'> {value.meanings[0].definitions[0].synonyms.join(", ")}
             </span>
-          </p>
+          </p>)}
 
-          <p>Antonyms:  
-            <span className='Antonyms'>  
-             {value.meanings[0].definitions[0].antonyms}
+          {value.meanings[0].definitions[0].antonyms.join(", ") && (<p>Antonyms:  
+            <span className='Antonyms'> {value.meanings[0].definitions[0].antonyms.join(", ")}
             </span>
-          </p>
+          </p>)}
           
-          {/* <p className='partSpeech'>
-            {value.meanings[1].partOfSpeech}
+          {value.meanings[1] && value.meanings[1].partOfSpeech ? (
+            <p className='partSpeech'>
+              {value.meanings[1].partOfSpeech}
             </p>
+          ) : null}
+
           <div className='line'></div>
+           <p>Meaning</p>
+            <ul>
+              {value.meanings[1] && value.meanings[1].definitions[0].definition ? (<li>{value.meanings[1].definitions[0].definition}</li>) : (null)}
 
-          <p>Meaning</p>
-          <ul>
-              <li>{value.meanings[1].definitions[0].definition}</li>
-              <li>{value.meanings[1].definitions[1].definition}</li>
-          </ul>
+              {value.meanings[1] && value.meanings[1].definitions[1] && value.meanings[1].definitions[1].definition ? (<li>{value.meanings[1].definitions[1].definition}</li>) : null}
 
+              {value.meanings[1] && value.meanings[1].definitions[2] && value.meanings[1].definitions[2].definition ? (<li>{value.meanings[1].definitions[2].definition}</li>) : null}
+            </ul> 
+        
           <p className='sourceCode'>
-          Source: 
-          <a 
-          href={value.sourceUrls}> 
-           {value.sourceUrls} </a> 
-          <FaExternalLinkAlt/>
-          </p> */}
+          Source: <a 
+          href={value.sourceUrls}>Wiktionary</a> <FaExternalLinkAlt/>
+          </p>
     </div>
   )
 }

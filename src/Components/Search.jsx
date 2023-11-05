@@ -2,25 +2,17 @@ import React, { useState} from 'react'
 import { FaSearch } from "react-icons/fa";
 import "./Search.css"
 import Result from './Result';
-import wordContent from "../Components/SearchData.json"
 
 const Search = () => {
   const [search, setSearch] = useState("")
-  const [content, setContent] = useState(wordContent)
-
-  // useEffect(() => {
-  //   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${search}`)
-  //   .then(res => res.json())
-  //   .then(data => {setContent(prevState => {
-  //     return [data]
-  //   })})
-  // }, [])
+  const [content, setContent] = useState([])
 
   const Submit = (e) => {
   e.preventDefault()
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${search}`)
   .then(res => res.json())
   .then(data => setContent(data))
+
   }
 
   return (
@@ -33,7 +25,6 @@ const Search = () => {
       onChange = {(e) => setSearch(e.target.value)} 
       />
 
-      {/* The form onSubmit buttons will handle the submit via the enter key on the keyboard while the icon can handle the submit function via the mouse */}
       <FaSearch onClick={Submit} className='SearchIcon'/>
     </form>
 
